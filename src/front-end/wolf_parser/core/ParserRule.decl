@@ -1,0 +1,16 @@
+wToken GetProgram();
+wToken GetFunction();
+wToken GetStart();
+wToken GetMainFunction();
+wToken GetMainStart();
+wToken GetType();
+wToken GetEnd();
+wToken GetBlock();
+wToken GetSumExp();
+wToken GetMulExp();
+wToken GetExp();
+wToken GetIntExp();
+wToken GetOrExp();
+wToken GetAndExp();
+wToken GetLogicExp();
+wToken GetVarDecl();

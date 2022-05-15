@@ -1,0 +1,105 @@
+<Program> : [<Function>]+
+;
+
+<Function> : <Start> <Block> <End>
+;
+
+<Start> : <Student> <ID> <Enter> <ID> '.' <ID> <Botaet> '.'
+;
+
+<Block> : [[
+			<KeyWord> [<LogicExp>]~ ':' <Block> [',' <Block>]*
+		  | <VarDecl>
+		  | <Var> '=' <Exp>
+		  ]? '.' ]+
+;
+
+<LogicExp> :
+;
+
+<Exp> : [['+' | '-' | '*' | '/']? | <Var>]?
+;	
+
+
+A student Popa enter to MIPT. Popa botaet. One day Popa meets the toxic Bupa.
+the toxic
+the not toxic
+the student [with toxicity 10]
+
+The student Popa enter to MIPT. Popa botaet. I am a toxic Duba. I am a student Boba with toxicity 12. Popa sees how Boba and Buba find a 2-aligned pointer.
+Popa out the window. Popa died.
+A toxic Jopa creates a new laboratory Math in MIPT.		
+	Buba is bullying Boba more toxic Buba and Boba more toxic Buba or Boba toxicity is 10
+	if Buba is toxic: // Buba is toxic? Not?
+		Dopa open window to laboratory and throw Buba out the window,
+		Dopa out the window.
+		
+	while Lukashov is toxic:
+		Boba looks like Poba catch compiler,
+		Boba botaet matan with Buba.
+Popa died.
+
+
+Enter to MIPT. Botay.
+	I am a toxic Buba,
+	I am a student Boba with toxicity 12,
+	
+	Buba botaet matan with Boba without Popa
+	Buba is bullying Boba more toxic Buba and Boba more toxic Buba or Boba toxicity is 10
+	if Buba is toxic:
+		Dopa open window to laboratory and throw Buba out the window,
+		Dopa out the window.
+		
+	while Lukashov is toxic:
+		Boba looks like Poba catch compiler,
+		Boba botaet matan with Buba.
+Died
+
+New window KPM laboratory 
+with a toxic Buba
+with a student Popa
+Botay
+	I am Popa set toxicity 13
+	Throw it out the window
+Died
+
+// 
+A botaet matan with B // A * B
+A watch anime with B // A + B
+
+compiler error with code 10 // 10
+
+A and B find a 2-aligned pointer, B find a 2-aligned pointer // +
+A and B find a 3-aligned pointer // 
+
+A B + B C +
+A B + B +
+
+A and B catch runtime error // *
+A and B debug the program together // (B / A)
+
+A find a 2-aligned pointer in code B // A - B
+B find a 3-aligned pointer in code B // A + B
+A botaet matan with B // A * B
+
+
+// Учит за 3 дня
+// открывает новый корпус
+// знакомится с 
+
+The student Boba open new frame Europe with the student Buba.
+	if Buba is toxicity 0:
+		Buba out the window.!.
+	
+	One day Boba meets the student Popa with toxicity 1.
+	Buba watches as Buba find a 2-aligned pointer in code Popa.
+	Boba open window to Europe and throw Buba.
+	Boba out the window.
+Boba died.
+
+The student Buba enter to MIPT. Buba botaet.
+	Buba asks the universe about the frailty of being.
+	Buba open window to Europe and throw Buba.
+	Buba out the window.
+Buba died.
+

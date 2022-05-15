@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Folder
+.vscode
+bulid-debug
+build-release
+bin

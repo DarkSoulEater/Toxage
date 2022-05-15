@@ -1,0 +1,14 @@
+The student Popa enter to MIPT. Popa botaet.
+
+One day Popa meets the toxic Bopa.
+One day Popa meets the not toxic Bopa.
+One day Popa meets the student Bopa.
+
+While: One day Popa meets the student Bopa. One day Popa meets the student Bopa.!.
+
+While: One day Popa meets the student Bopa. While: One day Popa meets the student Bopa.!.!.
+
+While: While: One day Popa meets the student Bopa. One day Popa meets the student Bopa.!.!.
+
+Sometimes Boba out the window.
+Popa died.
