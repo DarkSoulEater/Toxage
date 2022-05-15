@@ -80,7 +80,7 @@ wToken wParser::GetStart() {
         Get(Sym46);
         Get(Type);
         {
-            InsertNode();
+            InsertKids();
         }
         Get(ID);
         {
@@ -99,7 +99,7 @@ wToken wParser::GetStart() {
                 Get(WithFriends);
                 Get(Type);
                 {
-                    InsertNode();
+                    InsertKids();
                 }
                 Get(ID);
                 {
@@ -113,7 +113,7 @@ wToken wParser::GetStart() {
                         Get(Sym44);
                         Get(Type);
                         {
-                            InsertNode();
+                            InsertKids();
                         }
                         Get(ID);
                         {
@@ -184,7 +184,7 @@ wToken wParser::GetMainStart() {
     {
         Get(Type);
         {
-            InsertNode();
+            InsertKids();
         }
         Get(ID);
         {
@@ -377,7 +377,7 @@ wToken wParser::GetBlock() {
                         }
                         Get(ID);
                         {
-                            InsertToken();
+                            ret_val.value.node->kids_[ret_val.value.node->kids_.Size() - 1]->Insert(token);
                         }
                         if (View(And)) { // [ ]~
                             View(None);
@@ -385,10 +385,10 @@ wToken wParser::GetBlock() {
                             case wTokenType::wAnd:
                             {
                                 Get(And);
-                                Get(Trow);
+                                Get(Throw);
                                 Get(ID);
                                 {
-                                    InsertToken();
+                                    ret_val.value.node->kids_[ret_val.value.node->kids_.Size() - 1]->Insert(token);
                                 }
                                 while (View(Sym44)) { // [ ]*
                                     View(None);
@@ -398,7 +398,7 @@ wToken wParser::GetBlock() {
                                         Get(Sym44);
                                         Get(ID);
                                         {
-                                            InsertToken();
+                                            ret_val.value.node->kids_[ret_val.value.node->kids_.Size() - 1]->Insert(token);
                                         }
                                     } break;
 
@@ -420,6 +420,7 @@ wToken wParser::GetBlock() {
                         {
                             InsertToken();
                         }
+                        Get(Sym63);
                     } break;
 
                     case wTokenType::wWrite:
@@ -428,6 +429,7 @@ wToken wParser::GetBlock() {
                         {
                             InsertToken();
                         }
+                        Get(Sym58);
                         Get(Text);
                         {
                             InsertToken();
@@ -862,7 +864,7 @@ wToken wParser::GetVarDecl() {
         Get(Meets);
         Get(Type);
         {
-            InsertNode();
+            InsertKids();
         }
         Get(ID);
         {
@@ -879,7 +881,7 @@ wToken wParser::GetVarDecl() {
                 }
                 Get(Digit);
                 {
-                    InsertToken();
+                    ret_val.value.node->kids_[ret_val.value.node->kids_.Size() - 1]->Insert(token);
                 }
             } break;
 

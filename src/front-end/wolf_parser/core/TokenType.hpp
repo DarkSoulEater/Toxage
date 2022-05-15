@@ -37,7 +37,7 @@ enum wTokenType {
     wOpen,
     wWithFriends,
     wCallFunc,
-    wTrow,
+    wThrow,
     wRead,
     wWrite,
     wText,
@@ -46,6 +46,7 @@ enum wTokenType {
     wSym44,
     wSym58,
     wSym33,
+    wSym63,
     wSym43,
     wSym45,
     wSym42,
@@ -163,8 +164,8 @@ static const char* TokenTypeGetName(wTokenType type) {
     case wTokenType::wCallFunc:
          return "CallFunc";
 
-    case wTokenType::wTrow:
-         return "Trow";
+    case wTokenType::wThrow:
+         return "Throw";
 
     case wTokenType::wRead:
          return "Read";
@@ -189,6 +190,9 @@ static const char* TokenTypeGetName(wTokenType type) {
 
     case wTokenType::wSym33:
          return "!";
+
+    case wTokenType::wSym63:
+         return "?";
 
     case wTokenType::wSym43:
          return "+";

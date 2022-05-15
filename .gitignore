@@ -36,3 +36,6 @@
 bulid-debug
 build-release
 bin
+res
+test
+dump

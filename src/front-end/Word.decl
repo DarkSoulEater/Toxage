@@ -39,5 +39,11 @@ DeclWord(One)
 DeclWord(day)
 DeclWord(meets)
 DeclWord(died)
+DeclWord(asked)
+DeclWord(god)
+DeclWord(who)
+DeclWord(he)
+DeclWord(was)
+DeclWord(turned)
 
 #undef DeclWord

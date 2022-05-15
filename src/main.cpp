@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Buffer.hpp>
 #include "Parser.hpp"
+#include "Generator.hpp"
 
 void ParseArgs(const int argc, const char* argv[]);
 
@@ -18,6 +19,7 @@ enum class Word {
         and_,
         or_,
         new_,
+        throw_
 };   
 
 std::pair<int, Word> GetWord_(std::map<std::string, Word>& map, char* data) {
@@ -64,6 +66,7 @@ wToken wLexer::Lex() {
         {"or", Word::or_},
         {"and", Word::and_},
         {"new", Word::new_},
+        {"throw", Word::throw_},
     };
 
     char c = 0;
@@ -78,7 +81,7 @@ wToken wLexer::Lex() {
             c = Getc();
             dig = dig * 10 + c - '0';
         }
-        //token.value.value = dig;
+        token.value.value = dig;
         ReturnToken(wDigit);
     }
 
@@ -310,6 +313,12 @@ wToken wLexer::Lex() {
             ReturnToken(wReturn);
         }
 
+        // Throw
+        GetWord(throw_);
+        if (state) {
+            ReturnToken(wThrow);
+        }
+
         // Got bored (NEW FUNCTION)
         GetWord(Got);
         if (state) {
@@ -323,6 +332,14 @@ wToken wLexer::Lex() {
         GetWord(open);
         if (state) {
             c = Getc();
+            GetWord(window);
+            if (state) {
+                c = Getc();
+                GetWord(to);
+                CheckState("Expected \"to\"");
+                ReturnToken(wCallFunc);
+            }
+
             GetWord(new_);
             CheckState("Expected \"new\"");
 
@@ -347,6 +364,42 @@ wToken wLexer::Lex() {
             }
             
             CheckState("Expected \"friends\" OR \"toxicity\"");
+        }
+
+        // Read
+        GetWord(asked);
+        if (state) {
+            c = Getc();
+            GetWord(god);
+            CheckState("only god will help you");
+            
+            c = Getc();
+            GetWord(who);
+            CheckState("expected \"who\"");
+
+            c = Getc();
+            GetWord(he)
+            CheckState("expected \"he\"");
+
+            c = Getc();
+            GetWord(was);
+            CheckState("expected \"was\"");
+
+            ReturnToken(wRead);
+        }
+
+        // Write
+        GetWord(turned);
+        if (state) {
+            c = Getc();
+            GetWord(to);
+            CheckState("expected \"to\"");
+
+            c = Getc();
+            GetWord(god);
+            CheckState("only god will help you");
+
+            ReturnToken(wWrite);
         }
 
         // Sometimes
@@ -410,9 +463,14 @@ wToken wLexer::Lex() {
             ReturnToken(wDied);
         }
 
+        token.value.id = data_ - 2;
+        *(data_ - 2) = c;
         while (std::isalpha(*data_)) {
             c = Getc();
-        }   
+            *(data_ - 2) = c;
+        }
+        *(data_ - 1) = '\0';
+        
         ReturnToken(wID);
     }
 
@@ -435,6 +493,22 @@ wToken wLexer::Lex() {
 
     case '!':
         ReturnToken(wSym33);
+        break;
+
+    case '?':
+        ReturnToken(wSym63);
+        break;
+
+    case '"':
+        while ((c = Getc()) != '"' && c != '\0') {
+            // TODO: save text   
+        }
+        if (c == '\0') {
+            wLogger.PrintError("Not found closed \"");
+            ReturnToken(wLexerError);
+        }
+        
+        ReturnToken(wText);
         break;
     
     default:
@@ -461,6 +535,9 @@ int main(const int argc, const char* argv[]) {
         wLogger.Log("Ok grammar");
         tk.value.node->GraphicsDump();
         wLogger.Log("Ok dump");
+        Generator gen(tk.value.node);
+        gen.Generate("res/out.txt");
+        wLogger.Log("Ok generate");
     } else {
         wLogger.PrintError("Failed grammar");
     }
